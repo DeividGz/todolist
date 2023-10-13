@@ -1,0 +1,41 @@
+# @name create-user
+POST http://localhost:8080/users/
+Content-Type: application/json
+
+{
+    "name": "Deivid",
+    "username": "deivid",
+    "password": "12345"
+}
+
+###
+
+# @name auth-create-task
+POST http://localhost:8080/tasks/
+Authorization: Basic deivid 12345
+Content-Type: application/json
+
+{
+    "description": "Tarefa para gravar aula de Tasks do curso de Spring Boot",
+    "title": "Gravação de aula",
+    "priority": "ALTA",
+    "startAt": "2023-10-14T18:35:00",
+    "endAt": "2023-10-14T19:30:00"
+}
+
+###
+
+# @name auth-list-tasks
+GET http://localhost:8080/tasks/
+Authorization: Basic deivid 12345
+
+###
+
+# @name auth-update-task
+PUT http://localhost:8080/tasks/da564a5b-1044-4850-88f7-6d539bfef4ad
+Authorization: Basic deivid 12345
+Content-Type: application/json
+
+{
+    "title": "Tarefa para gravar aula de Tasks do curso de Spring Boot Tarefa para gravar aula de Tasks do curso de Spring Boot"
+}
